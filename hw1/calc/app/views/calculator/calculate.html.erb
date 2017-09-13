@@ -1,0 +1,16 @@
+The answer is:
+<% operation = params[:operation] %>
+<% if operation=="+" %>
+  <%= @sum %>
+<% end %>
+<% if operation=="-" %>
+  <%= @difference %>
+<% end %>
+<% if operation=="*" %>
+  <%= @product %>
+<% end %>
+<% if operation=="/" %>
+  <%= @quotient %>
+<% end %>
+<br>
+<a href="/calculator">Back to calculator</a>

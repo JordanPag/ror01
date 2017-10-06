@@ -1,5 +1,6 @@
 class AnimalsController < ApplicationController
   def show
+    @animal = Animal.find(params[:id])
   end
 
   def new
@@ -9,10 +10,10 @@ class AnimalsController < ApplicationController
   def create
     params.permit!
     @animal = Animal.new(params[:animal])
-    if @animal.favorite_food == "other"
-      @animal.favorite_food = ""
-      render action: :other
-    elsif @animal.valid?
+    #if @animal.favorite_food == "other"
+    #  @animal.favorite_food = ""
+    #  render action: :other
+    if @animal.save
       render action: :show
     else
       render action: :new
@@ -20,5 +21,9 @@ class AnimalsController < ApplicationController
   end
 
   def other
+  end
+
+  def index
+    @animals = Animal.all
   end
 end

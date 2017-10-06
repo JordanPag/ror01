@@ -19,5 +19,13 @@
     <%= form.label(:kind) %><br>
     <%= form.text_field(:kind) %><br>
   </p>
+  <p>
+    <%= form.label(:weight) %><br>
+    <%= form.text_field(:weight) %> <%= form.select(:units, "<option>pounds</option><option>kilograms</option>".html_safe) %><br>
+  </p>
+  <p>
+    <%= form.label(:favorite_food) %><br>
+    <%= form.select(:favorite_food, "<option>treats</option><option>fish</option><option>crackers</option><option>meat</option><option>other</option>".html_safe) %><br>
+  </p>
   <%= form.submit("Create Animal") %>
 <% end %>

@@ -1,0 +1,9 @@
+<h1>All Animals</h1>
+
+<ul>
+  <% for animal in @animals %>
+    <li><a href='/animals/<%=animal.id%>'><%= animal.name %></a></li>
+  <% end %>
+</ul>
+
+<a href="/animals/new">Create New Animal</a>

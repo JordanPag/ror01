@@ -21,7 +21,7 @@
   </p>
   <p>
     <%= form.label(:favorite_food) %><br>
-    <%= form.select(:favorite_food, "<option>treats</option><option>fish</option><option>crackers</option><option>meat</option><option>other</option>".html_safe) %><br>
+    Other: <%= form.text_field(:favorite_food) %>
   </p>
   <%= form.submit("Create Animal") %>
 <% end %>

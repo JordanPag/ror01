@@ -1,6 +1,4 @@
 class Animal < ActiveRecord::Base
-
-  #attr_accessor :favorite_food
   #attr_accessor :weight
   #attr_accessor :units
 

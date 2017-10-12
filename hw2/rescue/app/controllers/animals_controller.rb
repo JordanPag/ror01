@@ -10,9 +10,9 @@ class AnimalsController < ApplicationController
   def create
     params.permit!
     @animal = Animal.new(params[:animal])
-    #if @animal.favorite_food == "other"
-    #  @animal.favorite_food = ""
-    #  render action: :other
+    if @animal.favorite_food == "other"
+      @animal.favorite_food = ""
+      render action: :other
     if @animal.save
       render action: :show
     else

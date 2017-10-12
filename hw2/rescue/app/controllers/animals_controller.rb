@@ -32,4 +32,20 @@ class AnimalsController < ApplicationController
   def edit
     @animal = Animal.find(params[:id])
   end
+
+  def update
+    params.permit!
+    Animal.find(params[:id]).update(params[:animal])
+    @animal = Animal.find(params[:id])
+    if @animal.favorite_food == "other"
+      @animal.favorite_food = ""
+      render action: :otheredit
+    else
+      if @animal.save
+        render action: :show
+      else
+        render action: :edit
+      end
+    end
+  end
 end

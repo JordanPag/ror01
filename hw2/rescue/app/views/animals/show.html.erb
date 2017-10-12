@@ -3,4 +3,6 @@
 <h3>
   <%= @animal.name %> is a <%= @animal.age %> year old <%= @animal.kind %> whose favorite food is <%= @animal.favorite_food %>.
 </h3>
+<a href="/animals/<%=@animal.id%>/edit">Edit animal</a>
+<br>
 <a href="/animals">See all animals</a>

@@ -13,10 +13,12 @@ class AnimalsController < ApplicationController
     if @animal.favorite_food == "other"
       @animal.favorite_food = ""
       render action: :other
-    if @animal.save
-      render action: :show
     else
-      render action: :new
+      if @animal.save
+        render action: :show
+      else
+        render action: :new
+      end
     end
   end
 
@@ -25,5 +27,9 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
+  end
+
+  def edit
+    @animal = Animal.find(params[:id])
   end
 end

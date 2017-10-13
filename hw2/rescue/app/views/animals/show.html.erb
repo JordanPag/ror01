@@ -3,6 +3,6 @@
 <h3>
   <%= @animals.name %> is a <%= @animals.age %> year old <%= @animals.kind %> whose favorite food is <%= @animals.favorite_food %>.
 </h3>
-<a href="/animals/<%=@animals.id%>/edit">Edit animal</a>
+<%= link_to "Edit Animal", edit_animal_path() %>
 <br>
-<a href="/animals">See all animals</a>
+<%= link_to "See All Animals", animals_path() %>

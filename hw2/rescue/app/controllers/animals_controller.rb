@@ -1,20 +1,20 @@
 class AnimalsController < ApplicationController
   def show
-    @animal = Animal.find(params[:id])
+    @animals = Animal.find(params[:id])
   end
 
   def new
-    @animal = Animal.new
+    @animals = Animal.new
   end
 
   def create
     params.permit!
-    @animal = Animal.new(params[:animal])
-    if @animal.favorite_food == "other"
-      @animal.favorite_food = ""
+    @animals = Animal.new(params[:animal])
+    if @animals.favorite_food == "other"
+      @animals.favorite_food = ""
       render action: :other
     else
-      if @animal.save
+      if @animals.save
         render action: :show
       else
         render action: :new
@@ -30,18 +30,18 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find(params[:id])
+    @animals = Animal.find(params[:id])
   end
 
   def update
     params.permit!
     Animal.find(params[:id]).update(params[:animal])
-    @animal = Animal.find(params[:id])
-    if @animal.favorite_food == "other"
-      @animal.favorite_food = ""
+    @animals = Animal.find(params[:id])
+    if @animals.favorite_food == "other"
+      @animals.favorite_food = ""
       render action: :otheredit
     else
-      if @animal.save
+      if @animals.save
         render action: :show
       else
         render action: :edit

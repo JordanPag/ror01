@@ -1,12 +1,12 @@
 <h1>New Animal</h1>
 
 <ul>
-  <% for message in @animal.errors.full_messages %>
+  <% for message in @animals.errors.full_messages %>
   <font color="red"><li><%= message %></li></font>
   <% end %>
 </ul>
 
-<%= form_for(@animal) do |form| %>
+<%= form_for(@animals) do |form| %>
   <p>
     <%= form.label(:name) %><br>
     <%= form.text_field(:name) %><br>

@@ -48,4 +48,14 @@ class AnimalsController < ApplicationController
       end
     end
   end
+  def destroy
+    Animal.find(params[:id]).destroy
+    flash[:success] = "Animal Deleted"
+    redirect_to animals_path
+  end
+  def clear
+    Animal.destroy_all
+    flash[:success] = "All Animals Deleted"
+    redirect_to "/"
+  end
 end

@@ -1,0 +1,11 @@
+<h1>Custom Drinks</h1>
+
+<ul>
+  <% for drink in @drink %>
+    <li><%= link_to drink.name, drink_path(drink) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create New Drink", new_drink_path() %>
+<br>
+<%= link_to "Delete All Drinks", clear_path %>

@@ -1,0 +1,14 @@
+<h1>New Visitor For <%= @animal.name %></h1>
+
+<ul>
+  <% for message in @visits.errors.full_messages %>
+  <font color="red"><li><%= message %></li></font>
+  <% end %>
+</ul>
+
+<%= form_for(@visits) do |form| %>
+  <p>
+    <%= form.label(:visitor) %> Name: <%= form.text_field(:visitor) %><br>
+  </p><%= form.hidden_field(:animal_id) %>
+  <%= form.submit("Add Visitor") %>
+<% end %>

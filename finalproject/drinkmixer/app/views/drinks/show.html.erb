@@ -1,0 +1,17 @@
+<h1><%= @drinks.name %></h1>
+<h4>
+  Created by <%= @drinks.creator %>
+</h4>
+<br>
+<h2>Ingredients</h2>
+<ul>
+  <% for ingredient in @drinks.drinks %>
+    <li><%= ingredient.name %> &nbsp;<%= link_to "X", visit, method: :delete, data: { confirm: "Are you sure that #{ingredient.name} is not an ingredient?" } %></li>
+  <% end %>
+</ul>
+<br>
+<%= link_to "Edit drink", edit_drink_path(@drinks) %>
+<br>
+<%= link_to "Delete drink", @drinks, method: :delete, data: { confirm: "Are you sure you want to delete #{@drinks.name}?" } %>
+<br>
+<%= link_to "See All drinks", drinks_path() %>

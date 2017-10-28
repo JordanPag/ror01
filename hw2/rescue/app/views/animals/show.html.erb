@@ -3,6 +3,18 @@
 <h3>
   <%= @animals.name %> is a <%= @animals.age %> year old <%= @animals.kind %> whose favorite food is <%= @animals.favorite_food %>.
 </h3>
-<%= link_to "Edit Animal", edit_animal_path() %>
+<br>
+<h2>Visitors</h2>
+<ul>
+  <% for visit in @animals.visits %>
+    <li><%= visit.visitor %> &nbsp;<%= link_to "X", visit, method: :delete, data: { confirm: "Are you sure you want to delete #{visit.visitor}?" } %></li>
+  <% end %>
+</ul>
+<%= link_to "Visit #{@animals.name}", "/animals/#{@animals.id}/visits/new" %>
+<br>
+<br>
+<%= link_to "Edit Animal", edit_animal_path(@animals) %>
+<br>
+<%= link_to "Delete Animal", @animals, method: :delete, data: { confirm: "Are you sure you want to delete #{@animals.name}?" } %>
 <br>
 <%= link_to "See All Animals", animals_path() %>

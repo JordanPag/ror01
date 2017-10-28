@@ -1,0 +1,20 @@
+<h1>Edit Drink</h1>
+
+<ul>
+  <% for message in @drinks.errors.full_messages %>
+  <font color="red"><li><%= message %></li></font>
+  <% end %>
+</ul>
+
+<%= form_for(@drinks) do |form| %>
+  <p>
+    <%= form.label(:name) %><br>
+    <%= form.text_field(:name) %><br>
+  </p>
+  <p>
+    <%= form.label(:creator) %><br>
+    <%= form.text_field(:creator) %><br>
+  </p>
+  <%= form.submit("Save Changes") %>
+<% end %>
+<%= link_to "Cancel", drinks_path() %>

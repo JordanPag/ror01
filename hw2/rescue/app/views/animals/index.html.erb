@@ -2,8 +2,10 @@
 
 <ul>
   <% for animal in @animals %>
-    <li><a href='/animals/<%=animal.id%>'><%= animal.name %></a></li>
+    <li><%= link_to animal.name, animal_path(animal) %></li>
   <% end %>
 </ul>
 
 <%= link_to "Create New Animal", new_animal_path() %>
+<br>
+<%= link_to "Delete All Animals", clear_path %>

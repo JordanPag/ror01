@@ -5,8 +5,7 @@ class DrinksController < ApplicationController
 
   def new
     @drinks = Drink.new
-    @drinks.default = false
-    @all = Drink.all
+    @ingredients = Ingredient.all
   end
 
   def create
@@ -20,8 +19,7 @@ class DrinksController < ApplicationController
   end
 
   def index
-    @drinks = Drink.where(default: false)
-    @drink = Drink.all
+    @drinks = Drink.all
   end
 
   def edit

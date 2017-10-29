@@ -1,7 +1,7 @@
 <h1>Custom Drinks</h1>
 
 <ul>
-  <% for drink in @drink %>
+  <% for drink in @drinks %>
     <li><%= link_to drink.name, drink_path(drink) %></li>
   <% end %>
 </ul>

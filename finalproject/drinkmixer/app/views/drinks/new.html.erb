@@ -2,7 +2,7 @@
 
 <ul>
   <% for message in @drinks.errors.full_messages %>
-  <font color="red"><li><%= message %></li></font>
+    <font color="red"><li><%= message %></li></font>
   <% end %>
 </ul>
 
@@ -16,10 +16,10 @@
     <%= form.text_field(:creator) %><br>
   </p>
   <p>
-    <% for drink in @all %>
-    <%= check_box_tag(:parent ,drink %>
+    <% for ingredient in @ingredients %>
+      <%= form.check_box(:array[ingredient.id]) %>
+      <%= form.label(:array[ingredient.id], "#{ingredient.name}") %>
     <% end %>
   </p>
-  <%= form.hidden_field(:default) %>
   <%= form.submit("Create Drink") %>
 <% end %>

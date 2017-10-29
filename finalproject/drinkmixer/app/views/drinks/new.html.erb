@@ -17,8 +17,9 @@
   </p>
   <p>
     <% for ingredient in @ingredients %>
-      <%= form.check_box(:array[ingredient.id]) %>
-      <%= form.label(:array[ingredient.id], "#{ingredient.name}") %>
+      <%= form.check_box(:selection[ingredient.id]) %>
+      <%= form.label(:selection[ingredient.id], "#{ingredient.name}") %>
+      <br>
     <% end %>
   </p>
   <%= form.submit("Create Drink") %>

@@ -10,7 +10,12 @@ class DrinksController < ApplicationController
 
   def create
     params.permit!
-    @drinks = Drink.new(params[:drink])
+    @drinks = Drink.new(name: params[:drink][:name], creator: params[:drink][:creator])
+    for ingredient in Ingredient.all
+      if params[:drink][:selection][ingredient.id] = true
+        @drinks.ingredients.create(name: params[:drink][:selection][ingredient.id])
+      end
+    end
     if @drinks.save
       render action: :show
     else

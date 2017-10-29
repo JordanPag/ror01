@@ -17,8 +17,8 @@
   </p>
   <p>
     <% for ingredient in @ingredients %>
-      <%= form.check_box(:selection[ingredient.id]) %>
-      <%= form.label(:selection[ingredient.id], "#{ingredient.name}") %>
+      <%= check_box_tag(:aabcdefghijklmnopqrstuvwxyz[ingredient.id]) %>
+      <%= label_tag(:aabcdefghijklmnopqrstuvwxyz[ingredient.id], "#{ingredient.name}") %>
       <br>
     <% end %>
   </p>

@@ -10,15 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028230528) do
+ActiveRecord::Schema.define(version: 20171029190930) do
 
   create_table "drinks", force: :cascade do |t|
     t.string "name"
     t.string "creator"
+    t.integer "ingredient_id"
+  end
+
+  create_table "drinks_ingredients", id: false, force: :cascade do |t|
+    t.integer "drinks_id"
+    t.integer "ingredients_id"
+    t.index ["drinks_id"], name: "index_drinks_ingredients_on_drinks_id"
+    t.index ["ingredients_id"], name: "index_drinks_ingredients_on_ingredients_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
+    t.integer "drink_id"
   end
 
 end

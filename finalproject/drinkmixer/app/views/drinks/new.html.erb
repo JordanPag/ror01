@@ -16,11 +16,8 @@
     <%= form.text_field(:creator) %><br>
   </p>
   <p>
-    <% for ingredient in @ingredients %>
-      <%= check_box_tag(:aabcdefghijklmnopqrstuvwxyz[ingredient.id]) %>
-      <%= label_tag(:aabcdefghijklmnopqrstuvwxyz[ingredient.id], "#{ingredient.name}") %>
-      <br>
-    <% end %>
+    Ingredients <br>
+    <%= form.collection_check_boxes(:ingredient_ids, @ingredients, :id, :name) %>
   </p>
   <%= form.submit("Create Drink") %>
 <% end %>

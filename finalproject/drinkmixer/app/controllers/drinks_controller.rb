@@ -13,9 +13,11 @@ class DrinksController < ApplicationController
     @drinks = Drink.new(name: params[:drink][:name], creator: params[:drink][:creator])
     if @drinks.save
       for ingredient in Ingredient.all
-        if params[:"#{:aabcdefghijklmnopqrstuvwxyz[ingredient.id]}"] = "1"
-          @drinks.ingredients.create(name: ingredient.name)
-          ingredient.drinks.create(name: @drinks.name)
+        for id in params[:drink][:ingredient_ids]
+          if id == ingredient.id
+            @drinks.ingredients << ingredient
+            ingredient.drinks << @drinks
+          end
         end
       end
       if @drinks.save
@@ -54,8 +56,9 @@ class DrinksController < ApplicationController
   end
 
   def clear
-    Drink.destroy_all
-    flash[:success] = "All drinks Deleted"
+    for drink in Drink.all
+      drink.destroy
+    end
     redirect_to "/"
   end
 end

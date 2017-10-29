@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171029194445) do
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.integer "drink_id"
+    t.boolean "default"
   end
 
 end

@@ -3,10 +3,12 @@
   Created by <%= @drinks.creator %>
 </h4>
 <br>
+<img src="<%=@drinks.image%>" alt="IMAGE NO SHOWY" style="max-height: 200px;"></img>
+<br>
 <h2>Ingredients</h2>
 <ul>
   <% for ingredient in @drinks.ingredients %>
-    <li><%= ingredient.name %> &nbsp;<%= link_to "X", visit, method: :delete, data: { confirm: "Are you sure that #{ingredient.name} is not an ingredient?" } %></li>
+    <li><%= ingredient.name %></li>
   <% end %>
 </ul>
 <br>

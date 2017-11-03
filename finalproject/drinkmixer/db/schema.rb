@@ -16,13 +16,14 @@ ActiveRecord::Schema.define(version: 20171029194445) do
     t.string "name"
     t.string "creator"
     t.integer "ingredient_id"
+    t.string "image"
   end
 
   create_table "drinks_ingredients", id: false, force: :cascade do |t|
-    t.integer "drinks_id"
-    t.integer "ingredients_id"
-    t.index ["drinks_id"], name: "index_drinks_ingredients_on_drinks_id"
-    t.index ["ingredients_id"], name: "index_drinks_ingredients_on_ingredients_id"
+    t.integer "drink_id"
+    t.integer "ingredient_id"
+    t.index ["drink_id"], name: "index_drinks_ingredients_on_drink_id"
+    t.index ["ingredient_id"], name: "index_drinks_ingredients_on_ingredient_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
